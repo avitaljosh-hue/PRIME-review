@@ -1,13 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <style>
+#password-screen {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+#password-box {
+    text-align: center;
+}
+
+#password-box input {
+    padding: 12px;
+    width: 220px;
+    font-size: 16px;
+}
+
+#password-box button {
+    padding: 12px 18px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#password-error {
+    color: red;
+    display: none;
+    margin-top: 10px;
+}
+</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BU PRIME Reviewer</title>
 <style>
 :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#111827;background:#f3f4f6}body{margin:0}.wrap{max-width:900px;margin:auto;padding:32px 18px 48px}header{text-align:center;margin-bottom:28px}h1{margin:0 0 8px;font-size:clamp(2rem,6vw,3.2rem)}p{color:#4b5563}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{display:block;padding:22px;border-radius:16px;background:white;border:1px solid #e5e7eb;text-decoration:none;color:inherit;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:.15s}.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}.card h2{margin:0 0 7px;font-size:1.15rem}.card span{color:#6b7280;font-size:.92rem}footer{text-align:center;margin-top:30px;color:#6b7280;font-size:.85rem}</style>
 </head>
-<body><main class="wrap">
+<body>
+    <div id="password-screen">
+    <div id="password-box">
+        <h2>PRIME Review</h2>
+
+        <input type="password" id="password-input" placeholder="Enter password">
+        <button onclick="checkPassword()">Enter</button>
+
+        <div id="password-error">Incorrect password</div>
+    </div>
+</div>
+    <main class="wrap">
 <header><h1>BU PRIME Reviewer</h1><p>Mechanical Engineering review materials</p></header>
 <section class="grid">
 <a class="card" href="MATHEMATICS/MATHEMATICS.html"><h2>Mathematics</h2><span>Mathematics review materials</span></a>
@@ -17,4 +62,17 @@
 <a class="card" href="MACHINE DESIGN ELEMENTS/MD.html"><h2>MD Elements Book</h2><span>Machine design elements materials</span></a>
 </section>
 <footer>Made by Marc Joshua Avital for IOS users.</footer>
-</main></body></html>
+</main>
+
+<script>
+function checkPassword() {
+    const password = document.getElementById("password-input").value;
+
+    if (password === "papasathis2027") {
+        document.getElementById("password-screen").style.display = "none";
+    } else {
+        document.getElementById("password-error").style.display = "block";
+    }
+}
+</script>
+</body></html>
